@@ -51,7 +51,7 @@ public class JarMojo extends AbstractMojo
 
     private boolean hasClassifier()
     {
-        return classifier != null && !classifier.isBlank();
+        return classifier != null && !classifier.trim().isEmpty();
     }
 
     private String classifierSuffix()
