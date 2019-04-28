@@ -7,7 +7,7 @@
 
 	<groupId>org.kleczek</groupId>
 	<artifactId>toolprovider-maven-plugin</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>master-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>ToolProvider Maven Plugin</name>
