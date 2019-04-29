@@ -6,7 +6,9 @@ The plugin provides two goals:
 * exec - which is a general interface to execute any tool providing interface according to java.util.spi.ToolProvider.
 * jar - which is a replacement for maven-jar-plugin that uses jar ToolProvider.
 
-Standard maven-jar-plugin does not (yet) handle Java (JPMS) modules fully. For example it does not generate ModulePackages constant in compiled module-info.
+Standard maven-jar-plugin does not (yet) handle Java (JPMS) modules fully. In particular:
+* it does not generate ModulePackages constant in compiled module-info
+* it does not add main class info to compiled module-info.
 
 To replace standard maven-jar-plugin in your project set packaging in the pom file to *toolsjar* and configure toolprovider-maven-plugin as build extension:
 
@@ -34,7 +36,7 @@ To replace standard maven-jar-plugin in your project set packaging in the pom fi
 			<plugin>
 				<groupId>org.kleczek</groupId>
 				<artifactId>toolprovider-maven-plugin</artifactId>
-				<version>0.0.2</version>
+				<version>0.0.3</version>
 				<extensions>true</extensions>
 			</plugin>
 		</plugins>
