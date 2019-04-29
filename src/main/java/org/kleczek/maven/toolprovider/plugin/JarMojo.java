@@ -43,6 +43,9 @@ public class JarMojo extends AbstractMojo
     @Parameter(name = "outputDirectory", defaultValue = "${project.build.directory}")
     private String outputDirectory;
 
+    @Parameter
+    private String mainClass;
+
     @Parameter(readonly = true, defaultValue = "${project}")
     MavenProject project;
 
@@ -88,6 +91,11 @@ public class JarMojo extends AbstractMojo
         execArgs.add("--create");
         execArgs.add("--file");
         execArgs.add(artifactFile.getAbsolutePath());
+        if (mainClass != null && !mainClass.trim().isEmpty())
+        {
+            execArgs.add("--main-class");
+            execArgs.add(mainClass);
+        }
         execArgs.add("-C");
         execArgs.add("/");
         execArgs.add(classesDirectory);
