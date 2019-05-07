@@ -36,6 +36,9 @@ public class JarMojo extends AbstractMojo
 
     @Parameter(name = "classifier")
     private String classifier;
+    
+    @Parameter
+    private String manifestFile;
 
     @Parameter(name = "classesDirectory", defaultValue = "${project.build.outputDirectory}")
     private String classesDirectory;
@@ -96,9 +99,14 @@ public class JarMojo extends AbstractMojo
             execArgs.add("--main-class");
             execArgs.add(mainClass);
         }
+        if (manifestFile != null) {
+            execArgs.add("--manifest");
+            execArgs.add(manifestFile);
+        }
         execArgs.add("-C");
-        execArgs.add("/");
         execArgs.add(classesDirectory);
+
+        execArgs.add(".");
 
         return execArgs.toArray(new String[execArgs.size()]);
     }
